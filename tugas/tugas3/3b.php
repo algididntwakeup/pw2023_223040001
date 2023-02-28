@@ -11,6 +11,6 @@ function urutanAngka($angka){
   }
 }
 
-urutanAngka(5); //functionnya kita panggil pake parameter 5 biar ngurutnya 5 baris
+urutanAngka(5); //functionnya kita panggil pake parameter 5 biar ngurutnya 5 baris, jd urutan angka tuh buat nentuin baris yang akan dioutput
 
 ?>
