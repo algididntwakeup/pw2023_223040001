@@ -40,7 +40,7 @@ git pull origin <nama branch>
 
 ```
 git pull https://github.com/algididntwakeup/pw2023_223040001.git main
-From https://github.com/ahmadsuherman/pw2023_223040066
+From https://github.com/algididntwakeup/pw2023_223040001
  * branch            lort     -> FETCH_HEAD
 Already up-to-date.
 ```
