@@ -11,6 +11,7 @@
             "nama"      => "Aurelia Melati Suci",
             "nrp"       => 223040045,
             "email"     => "melatisuci@gmail.com",
+            
             "jurusan"   => "Teknik Informatika",
             "gambar"    => "img/apa7.png"
         ],
