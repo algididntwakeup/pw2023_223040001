@@ -24,7 +24,7 @@ header {
 }
 
 #header-banner h1 {
-  color: #5c3701;
+  color: #d1aa70;
 }
 
 #header-banner p {
@@ -35,7 +35,7 @@ header {
   float: left;
   width: 1110px;
   padding: 15px;
-  background-color: #5c3701;
+  background-color: #d1aa70;
 }
 
 #user-info p {
@@ -57,7 +57,7 @@ nav ul {
 
 nav ul li.section-menu {
   padding: 10px 15px 10px;
-  background-color: #5c3701;
+  background-color: #d1aa70;
   color: #fff;
   font-weight: bold;
 }
@@ -190,7 +190,7 @@ ul.table-pagination li a.active {
 }
 
 .data-table tr th {
-  background-color: #5c3701;
+  background-color: #d1aa70;
   color: #fff;
 }
 
@@ -198,7 +198,7 @@ footer {
   float: left;
   width: 1110px;
   padding: 15px;
-  background-color: #5c3701;
+  background-color: #d1aa70;
 }
 
 footer p {

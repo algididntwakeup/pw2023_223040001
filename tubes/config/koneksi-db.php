@@ -1,5 +1,5 @@
 <?php
-
+// fungsi ini berguna untuk mengkoneksikan database yg telah dibuat dengan web ini
     $hostname   = "localhost";
     $user       = "root";
     $password   = "";
