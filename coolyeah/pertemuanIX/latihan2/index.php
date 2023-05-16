@@ -1,4 +1,5 @@
 <?php
+$name = 'Home';
 $students = [
   [
     "nama" => "Sandhika Galih",
@@ -12,4 +13,4 @@ $students = [
   ]
 ];
 
-require('index.view.php');
+require('views/index.view.php');
