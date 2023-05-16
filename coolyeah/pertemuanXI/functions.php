@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', '/pw2023_223040001/coolyeah/pertemuanIX/latihan4/');
+define('BASE_URL', '/pw2023_223040001/coolyeah/pertemuanXI/');
 
 function dd($value)
 {
