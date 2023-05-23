@@ -63,6 +63,6 @@
 		$query = mysqli_query($db_conn, $sql);
 
 		// mengalihkan halaman
-		echo "<meta http-equiv='refresh' content='0; url=index.php?p=kategori'>";
+		echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=kategori'>";
 	}
 ?>

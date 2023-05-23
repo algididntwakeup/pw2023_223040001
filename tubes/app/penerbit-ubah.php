@@ -96,6 +96,6 @@
 		}
 
 		// mengalihkan halaman
-		echo "<meta http-equiv='refresh' content='0; url=index.php?p=penerbit'>";
+		echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=penerbit'>";
 	}
 ?>

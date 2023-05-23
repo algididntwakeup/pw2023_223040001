@@ -46,7 +46,7 @@
 			<div class="page-content">
 				<div class="table-upper">
 					<div class="table-upper-left">
-						<a href="index.php?p=buku-tambah" class="btn-success btn-medium">Tambah</a>
+						<a href="mainpage.php?p=buku-tambah" class="btn-success btn-medium">Tambah</a>
 						<a href="./app/buku-cetak-daftar.php" title="Cetak Buku" target="_blank">
 							<img src="./assets/img/print.png" width="50" class="btn-print">
 						</a>
@@ -86,8 +86,8 @@
 						<td><?php echo $data['id_penerbit']; ?></td>
 						<td class="text-center"><?php echo ($data['status_aktif'] == 'Y') ? 'Ya' : 'Tidak'; ?></td>
 						<td class="text-center">
-							<a href="index.php?p=buku-ubah&id=<?php echo $data['id_buku']; ?>" class="btn-warning mg-btm-5">Ubah</a>
-							<a href="index.php?p=buku-hapus&id=<?php echo $data['id_buku']; ?>" class="btn-danger mg-btm-5 confirm">Hapus</a>
+							<a href="mainpage.php?p=buku-ubah&id=<?php echo $data['id_buku']; ?>" class="btn-warning mg-btm-5">Ubah</a>
+							<a href="mainpage.php?p=buku-hapus&id=<?php echo $data['id_buku']; ?>" class="btn-danger mg-btm-5 confirm">Hapus</a>
 						</td>
 					</tr>
 				<?php
@@ -106,7 +106,7 @@
 
 							for($i = 1; $i <= $page_num; $i++) {
 						?>
-							<li><a href="index.php?p=buku&num=<?php echo $i; ?>" <?php echo ($num == $i || ($num == 0 && $i == 1)) ? 'class="active"' : '' ?>><?php echo $i; ?></a></li>
+							<li><a href="mainpage.php?p=buku&num=<?php echo $i; ?>" <?php echo ($num == $i || ($num == 0 && $i == 1)) ? 'class="active"' : '' ?>><?php echo $i; ?></a></li>
 					<?php
 							}
 						}

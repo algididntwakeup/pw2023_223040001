@@ -45,7 +45,7 @@
 			<div class="page-content">
 				<div class="table-upper">
 					<div class="table-upper-left">
-						<a href="index.php?p=penerbit-tambah" class="btn-success btn-medium">Tambah</a>
+						<a href="mainpage.php?p=penerbit-tambah" class="btn-success btn-medium">Tambah</a>
 					</div>
 					<div class="table-upper-right">
 						<form name="pencarian_kategori" action="" method="post" class="mg-top-15 text-right">
@@ -75,8 +75,8 @@
 						<td><?php echo $data['nama_penerbit']; ?></td>
 						
                         <td class="text-center">
-							<a href="index.php?p=penerbit-ubah&id=<?php echo $data['id_penerbit']; ?>" class="btn-warning mg-btm-5">Ubah</a>
-							<a href="index.php?p=penerbit-hapus&id=<?php echo $data['id_penerbit']; ?>" class="btn-danger mg-btm-5 confirm">Hapus</a>
+							<a href="mainpage.php?p=penerbit-ubah&id=<?php echo $data['id_penerbit']; ?>" class="btn-warning mg-btm-5">Ubah</a>
+							<a href="mainpage.php?p=penerbit-hapus&id=<?php echo $data['id_penerbit']; ?>" class="btn-danger mg-btm-5 confirm">Hapus</a>
 						</td>
 					</tr>
 				<?php
@@ -95,7 +95,7 @@
 
 							for($i = 1; $i <= $page_num; $i++) {
 						?>
-							<li><a href="index.php?p=penerbit&num=<?php echo $i; ?>" <?php echo ($num == $i || ($num == 0 && $i == 1)) ? 'class="active"' : '' ?>><?php echo $i; ?></a></li>
+							<li><a href="mainpage.php?p=penerbit&num=<?php echo $i; ?>" <?php echo ($num == $i || ($num == 0 && $i == 1)) ? 'class="active"' : '' ?>><?php echo $i; ?></a></li>
 					<?php
 							}
 						}

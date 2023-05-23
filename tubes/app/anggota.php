@@ -46,7 +46,7 @@
 			<div class="page-content">
 				<div class="table-upper">
 					<div class="table-upper-left">
-						<a href="index.php?p=anggota-tambah" class="btn-success btn-medium">Tambah</a>
+						<a href="mainpage.php?p=anggota-tambah" class="btn-success btn-medium">Tambah</a>
 						<a href="./app/anggota-cetak-daftar.php" title="Cetak Anggota" target="_blank">
 							<img src="./assets/img/print.png" width="50" class="btn-print">
 						</a>
@@ -95,8 +95,8 @@
 						<td class="text-center"><?php echo ($data['status_aktif'] == 'Y') ? 'Ya' : 'Tidak'; ?></td>
 						<td class="text-center">
 							<a href="./app/anggota-cetak-kartu.php?&id=<?php echo $data['id_anggota']; ?>" class="btn-primary mg-btm-5" target="_blank">Cetak Kartu</a>
-							<a href="index.php?p=anggota-ubah&id=<?php echo $data['id_anggota']; ?>" class="btn-warning mg-btm-5">Ubah</a>
-							<a href="index.php?p=anggota-hapus&id=<?php echo $data['id_anggota']; ?>" class="btn-danger mg-btm-5 confirm">Hapus</a>
+							<a href="mainpage.php?p=anggota-ubah&id=<?php echo $data['id_anggota']; ?>" class="btn-warning mg-btm-5">Ubah</a>
+							<a href="mainpage.php?p=anggota-hapus&id=<?php echo $data['id_anggota']; ?>" class="btn-danger mg-btm-5 confirm">Hapus</a>
 						</td>
 					</tr>
 				<?php
@@ -115,7 +115,7 @@
 
 							for($i = 1; $i <= $page_num; $i++) {
 						?>
-							<li><a href="index.php?p=anggota&num=<?php echo $i; ?>" <?php echo ($num == $i || ($num == 0 && $i == 1)) ? 'class="active"' : '' ?>><?php echo $i; ?></a></li>
+							<li><a href="mainpage.php?p=anggota&num=<?php echo $i; ?>" <?php echo ($num == $i || ($num == 0 && $i == 1)) ? 'class="active"' : '' ?>><?php echo $i; ?></a></li>
 					<?php
 							}
 						}

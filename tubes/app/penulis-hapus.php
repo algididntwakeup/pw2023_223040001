@@ -20,5 +20,5 @@
 	}
 
 	// mengalihkan halaman
-	echo "<meta http-equiv='refresh' content='0; url=index.php?p=penulis'>";
+	echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=penulis'>";
 ?>
