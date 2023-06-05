@@ -1,5 +1,4 @@
 <?php
-$name = 'Home';
 $students = [
   [
     "nama" => "Sandhika Galih",

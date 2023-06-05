@@ -21,21 +21,21 @@
 					echo "<script>alert('ID Anggota tidak ditemukan!');</script>";
 
 					// mengalihkan halaman
-					echo "<meta http-equiv='refresh' content='0; url=index.php?p=anggota'>";
+					echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=anggota'>";
 					exit;
 				}
 			} else {
 				echo "<script>alert('ID Anggota kosong!');</script>";
 
 				// mengalihkan halaman
-				echo "<meta http-equiv='refresh' content='0; url=index.php?p=anggota'>";
+				echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=anggota'>";
 				exit;
 			}
 		} else {
 			echo "<script>alert('ID Anggota tidak didefinisikan!');</script>";
 
 			// mengalihkan halaman
-			echo "<meta http-equiv='refresh' content='0; url=index.php?p=anggota'>";
+			echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=anggota'>";
 			exit;
 		}
 ?>
@@ -163,6 +163,6 @@
 		}
 
 		// mengalihkan halaman
-		echo "<meta http-equiv='refresh' content='0; url=index.php?p=anggota'>";
+		echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=anggota'>";
 	}
 ?>

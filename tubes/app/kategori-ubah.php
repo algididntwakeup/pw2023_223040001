@@ -21,21 +21,21 @@
 					echo "<script>alert('ID Kategori tidak ditemukan!');</script>";
 
 					// mengalihkan halaman
-					echo "<meta http-equiv='refresh' content='0; url=index.php?p=kategori'>";
+					echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=kategori'>";
 					exit;
 				}
 			} else {
 				echo "<script>alert('ID Kategori kosong!');</script>";
 
 				// mengalihkan halaman
-				echo "<meta http-equiv='refresh' content='0; url=index.php?p=kategori'>";
+				echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=kategori'>";
 				exit;
 			}
 		} else {
 			echo "<script>alert('ID Kategori tidak didefinisikan!');</script>";
 
 			// mengalihkan halaman
-			echo "<meta http-equiv='refresh' content='0; url=index.php?p=kategori'>";
+			echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=kategori'>";
 			exit;
 		}
 ?>
@@ -96,6 +96,6 @@
 		}
 
 		// mengalihkan halaman
-		echo "<meta http-equiv='refresh' content='0; url=index.php?p=kategori'>";
+		echo "<meta http-equiv='refresh' content='0; url=mainpage.php?p=kategori'>";
 	}
 ?>
