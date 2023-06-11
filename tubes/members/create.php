@@ -1,9 +1,8 @@
 <?php
 require('../app.php');
 
-
 // Logic Create User
-if (isset($_POST["createUser"])) {
+if (isset($_POST["daftar"])) {
     if (createUser($_POST) > 0) {
         echo "<script>
             alert('Berhasil Menambahkan Anggota Baru!');
