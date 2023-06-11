@@ -33,16 +33,17 @@ $result = mysqli_query($connection, "SELECT * FROM users");
 
                   <tr>
                     <td><?= $data['id'] ?></td>
-                    <td><?php
-							      	$data_foto = $data['foto'];
-							      	if($data_foto == '-') {
-								    	$data_foto = 'foto-default.jpg';
-							      	}
-							        ?>
-							<img src="<?php echo '../assets/img/members/' . $data_foto; ?>" width="60">
-            </td>
-            <td><?= $data['nama'] ?></td>
-                    <td><?php echo ($data['jenis_kelamin'] == 'L') ? 'Pria' : 'Wanita'; ?></td>
+                    <td>
+                      <?php
+                      $data_foto = $data['foto'];
+                      if ($data_foto == '-') {
+                        $data_foto = 'foto-default.jpg';
+                      }
+                      ?>
+                      <img src="<?php echo '../assets/img/members/' . $data_foto; ?>" width="60">
+                    </td>
+                    <td><?= $data['nama'] ?></td>
+                    <td><?php echo ($data['jenis_kelamin'] == 'Lelaki') ? 'Pria' : 'Wanita'; ?></td>
                     <td><?= $data['id_prodi'] ?></td>
                     <td>
                       <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="delete.php?id=<?= $data['id'] ?>">
@@ -63,6 +64,7 @@ $result = mysqli_query($connection, "SELECT * FROM users");
         </div>
       </div>
     </div>
+  </div>
 </section>
 
 <?php

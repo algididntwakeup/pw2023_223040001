@@ -8,14 +8,14 @@ if (returningBook($bookId) > 0) {
     echo "
         <script>
             alert('Buku Telah Dikembalikan!');
-            location='history-order.php';
+            location='index.php';
         </script>
     ";
 } else {
     echo "
         <script>
             alert('Server sedang Error, Coba Lagi Nanti!');
-            location='history-order.php';
+            location='index.php';
         </script>
     ";
 }

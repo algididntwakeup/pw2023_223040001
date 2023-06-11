@@ -12,14 +12,14 @@ if (missingBook($bookId) > 0) {
     echo "
         <script>
             alert('Orderan Berhasil Di Tolak!');
-            location='history-order.php';
+            location='index.php';
         </script>
     ";
 } else {
     echo "
         <script>
             alert('Server sedang Error, Coba Lagi Nanti!');
-            location='history-order.php';
+            location='index.php';
         </script>
     ";
 }

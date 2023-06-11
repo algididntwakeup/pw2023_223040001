@@ -1,17 +1,5 @@
-<?php
-session_start();
+<?php 
 require('../app.php');
-
-if (!isset($_SESSION["user"])) {
-    header("Location: ../login.php");
-}
-
-$role = $_SESSION["role"];
-
-if ($role !== "admin") {
-    header("Location: ../index.php");
-}
-
 // Logic Create Book
 if (isset($_POST["createBook"])) {
     if (createBook($_POST) > 0) {

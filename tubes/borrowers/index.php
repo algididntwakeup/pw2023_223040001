@@ -46,7 +46,13 @@ require_once '../layout/_top.php';
               <tbody>
               <?php
                     $nomor = 1;
-                    $dataMinjem = querySql("SELECT * FROM pinjam"); ?>
+                    $dataMinjem = querySql("SELECT *, CASE 
+                       WHEN durasi_pinjaman = '3 Hari' THEN '3 Hari'
+                       WHEN durasi_pinjaman = '7 Hari' THEN '7 Hari'
+                       WHEN durasi_pinjaman = '30 Hari' THEN '30 Hari'
+                       ELSE 'Durasi tidak diketahui'
+                     END AS durasi_peminjaman 
+                     FROM pinjam"); ?>
                     <?php foreach ($dataMinjem as $pinjeman) : ?>
 
                       <input type="hidden" name="id" value="<?= $pinjeman['id_pinjam'] ?>">
@@ -62,7 +68,7 @@ require_once '../layout/_top.php';
                                 <?php
                                 $durasi_pinjaman = $pinjeman["durasi_peminjaman"]; // Ambil nilai ENUM dari database
 
-                                echo $durasi_pinjaman; // Tampilkan nilai ENUM
+                                echo $pinjeman["durasi_peminjaman"]; // Tampilkan nilai ENUM
                                 ?>
                             </td>
                               <td>
