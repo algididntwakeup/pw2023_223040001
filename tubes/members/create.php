@@ -1,16 +1,6 @@
 <?php
-session_start();
 require('../app.php');
 
-if (!isset($_SESSION["user"])) {
-    header("Location: ../login.php");
-}
-
-$role = $_SESSION["role"];
-
-if ($role !== "admin") {
-    header("Location: ../index.php");
-}
 
 // Logic Create User
 if (isset($_POST["createUser"])) {
