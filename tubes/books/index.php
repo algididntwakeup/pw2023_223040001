@@ -14,7 +14,7 @@ $books = querySql("SELECT * FROM buku ORDER BY id_buku ASC");
             <?php foreach ($books as $book) : ?>
                 <div class="col-md-3">
                     <div class="card mt-4">
-                        <img src="https://placeimg.com/320/250/nature" width="100%" alt="">
+                        <img src="https://loremflickr.com/320/250/books" width="100%" alt="">
                         <div class="card-body">
                             <div class="card-title">
                                 <h6><?= $book["judul_buku"]; ?></h6>

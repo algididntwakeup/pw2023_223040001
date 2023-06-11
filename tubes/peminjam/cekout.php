@@ -14,7 +14,7 @@ if ($role !== "member") {
 
 if (isset($_POST["checkoutBuku"])) {
     if (createCheckout($_POST) > 0) {
-        header("Location: history.php");
+        header("Location: index.php");
     } else {
         echo mysqli_error($db);
     }

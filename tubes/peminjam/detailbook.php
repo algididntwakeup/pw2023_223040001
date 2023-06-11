@@ -17,7 +17,7 @@ $findOneBook = querySql("SELECT * FROM buku WHERE id_buku = $bookId")[0];
   <div class="row">
     <div class="col-md-3 mx-auto">
       <div class="card mt-4" style="width: 20rem;">
-        <img src="https://placeimg.com/640/480/nature" width="100%" alt="Detail Picture <?= $findOneBook["judul_buku"]; ?>">
+        <img src="https://loremflickr.com/640/480/books" width="100%" alt="Detail Picture <?= $findOneBook["judul_buku"]; ?>">
         <div class="card-body">
           <div class="card-title">
             <span class="badge bg-info rounded-pill"><?= $findOneBook["kategori_buku"]; ?></span>
