@@ -71,6 +71,72 @@ function createUser($data)
     return mysqli_affected_rows($db);
 }
 
+function editUser($data)
+{
+    global $db;
+
+    $id = $data['id'];
+    $nama = htmlspecialchars($data["nama"]);
+    $email = htmlspecialchars($data["email"]);
+    $password = htmlspecialchars($data["password"]);
+    $jenis_kelamin = htmlspecialchars($data["jenis_kelamin"]);
+
+    // Mendapatkan ID prodi yang dipilih oleh pengguna
+    $prodi_id = $_POST['prodi'];
+
+    // Mendapatkan foto
+    $foto = $_FILES['foto']['name'];
+    $tmpFoto = $_FILES['foto']['tmp_name'];
+
+    // Mengambil data user yang akan diupdate
+    $queryUser = "SELECT * FROM users WHERE id = '$id'";
+    $resultUser = mysqli_query($db, $queryUser);
+    $userData = mysqli_fetch_assoc($resultUser);
+
+    // Validasi input yang diperlukan
+    if (empty($nama) || empty($email) || empty($jenis_kelamin) || empty($prodi_id)) {
+        setcookie("error_form", "Harap isi semua field dengan benar dan lengkap yaa.", time() + 1);
+        header("location: edit.php?id=$id");
+        exit;
+    }
+
+    // Proses update data
+    $queryUpdateUser = "UPDATE users SET 
+                        nama = '$nama',
+                        email = '$email',
+                        jenis_kelamin = '$jenis_kelamin',
+                        id_prodi = '$prodi_id'";
+
+    // Update password jika ada perubahan
+    if (!empty($password)) {
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $queryUpdateUser .= ", password = '$passwordHash'";
+    }
+
+    // Update foto jika ada perubahan
+    if (!empty($foto)) {
+        // Hapus foto lama jika ada
+        if ($userData['foto'] != '-') {
+            unlink("assets/img/members/" . $userData['foto']);
+        }
+
+        // Rename file foto. Contoh: foto-AG007.jpg
+        $ext_file = pathinfo($foto, PATHINFO_EXTENSION);
+        $foto_rename = 'foto-' . $nama . '.' . $ext_file;
+        $lokasiFoto = "assets/img/members/" . $foto_rename;
+
+        if (move_uploaded_file($tmpFoto, $lokasiFoto)) {
+            $queryUpdateUser .= ", foto = '$foto_rename'";
+        }
+    }
+
+    $queryUpdateUser .= " WHERE id = '$id'";
+
+    mysqli_query($db, $queryUpdateUser);
+
+    return mysqli_affected_rows($db);
+}
+
 
 function createBook($data)
 {
