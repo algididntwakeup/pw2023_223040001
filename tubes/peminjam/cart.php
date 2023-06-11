@@ -9,7 +9,7 @@ if ($role !== "member") {
 
 ?>
 
-<?php require('layouts/_top.php'); ?>
+<?php require_once('layouts/_top.php'); ?>
 
 <style>
     .container {
@@ -73,4 +73,4 @@ if ($role !== "member") {
     </div>
 <?php endif; ?>
 
-<?php require('layouts/_bottom.php'); ?>
+<?php require_once('layouts/_bottom.php'); ?>

@@ -30,7 +30,7 @@ if (!$userData) {
     exit;
 }
 
-require 'layouts/_top.php';
+require_once 'layouts/_top.php';
 ?>
 
 <section class="section">

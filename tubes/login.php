@@ -68,7 +68,7 @@ if (isset($_POST['login'])) {
 
             <div class="card card-primary">
               <div class="card-header">
-                <h4>Login Admin</h4>
+                <h4>Login</h4>
                 <span class="mx-auto"></span>
                   
               </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'layouts/_top.php';
+require_once 'layouts/_top.php';
 require_once '../app.php';
 
 $bookId = $_GET["id"];
@@ -36,6 +36,8 @@ $findOneBook = querySql("SELECT * FROM buku WHERE id_buku = $bookId")[0];
     </div>
   </div>
 </section>
+
+<?php require_once('layouts/_bottom.php'); ?>
 
 
 

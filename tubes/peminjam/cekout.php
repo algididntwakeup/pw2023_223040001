@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../app.php');
-require('layouts/_top.php');
+require_once('layouts/_top.php');
 if (!isset($_SESSION["user"])) {
     header("Location: ../login.php");
 }
@@ -107,4 +107,4 @@ if (empty($_SESSION["keranjang"]) || !isset($_SESSION["keranjang"])) {
     </div>
 </section>
 
-<?php require('layouts/_bottom.php'); ?>
+<?php require_once('layouts/_bottom.php'); ?>
