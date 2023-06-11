@@ -155,7 +155,7 @@ function createCheckout($data)
         return false;
     }
 
-    $sqlMinjem = "INSERT INTO pinjam VALUES(id_pinjam,id_prodi,'$nama','$nama_buku','$email','$no_telp','$alamat','$durasi_pinjaman','Dipinjam','$tanggalPinjam')";
+    $sqlMinjem = "INSERT INTO pinjam VALUES(id_pinjam,'$nama','$nama_buku','$email','$no_telp','$alamat','$durasi_pinjaman','Dipinjam','$tanggalPinjam')";
     mysqli_query($db, $sqlMinjem);
     unset($_SESSION["keranjang"]);
     return mysqli_affected_rows($db);

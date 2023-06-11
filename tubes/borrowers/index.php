@@ -1,16 +1,15 @@
 <?php
-session_start();
 require('../app.php');
 
-if (!isset($_SESSION["user"])) {
-    header("Location: ../login.php");
-}
+// if (!isset($_SESSION["user"])) {
+//     header("Location: ../login.php");
+// }
 
-$role = $_SESSION["role"];
+// $role = $_SESSION["role"];
 
-if ($role !== "admin") {
-    header("Location: ../index.php");
-}
+// if ($role !== "admin") {
+//     header("Location: ../index.php");
+// }
 
 ?>
 
@@ -34,7 +33,6 @@ require_once '../layout/_top.php';
                 <tr class="text-center">
                   <th>No</th>
                   <th>Peminjam</th>
-                  <th>Prodi</th>
                   <th>Buku</th>
                   <th>Email</th>
                   <th>No.Telp</th>
@@ -51,28 +49,38 @@ require_once '../layout/_top.php';
                     $dataMinjem = querySql("SELECT * FROM pinjam"); ?>
                     <?php foreach ($dataMinjem as $pinjeman) : ?>
 
-                  <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                      <input type="hidden" name="id" value="<?= $pinjeman['id_pinjam'] ?>">
+
                   <tr class="text-center">
                     <td><?= $nomor++; ?></td>
                     <td><?= $pinjeman["nama"]; ?></td>
-                            <td><?= $pinjeman["id_prodi"]; ?></td>
+                    <td><?= $pinjeman["nama_buku"]; ?></td>
                             <td><?= $pinjeman["email"]; ?></td>
                             <td><?= $pinjeman["no_telp"]; ?></td>
                             <td><?= $pinjeman["alamat"]; ?></td>
-                            <td><?= $pinjeman["durasi_peminjaman"]; ?></td>
-                            <td><?= $pinjeman["alamat"]; ?></td>
                             <td>
+                                <?php
+                                $durasi_pinjaman = $pinjeman["durasi_peminjaman"]; // Ambil nilai ENUM dari database
+
+                                echo $durasi_pinjaman; // Tampilkan nilai ENUM
+                                ?>
+                            </td>
+                              <td>
                                 <?php if ($pinjeman["status_buku"] === "Dikembalikan") : ?>
                                     <span class="text-success fw-bold"><?= $pinjeman["status_buku"]; ?></span>
                                 <?php elseif ($pinjeman["status_buku"] === "Hilang") : ?>
-                                    <span class="text-danger fw-bold"> <?= $pinjeman["status_buku"]; ?></span>
+                                    <span class="text-danger fw-bold"><?= $pinjeman["status_buku"]; ?></span>
                                 <?php else : ?>
                                     <?= $pinjeman["status_buku"]; ?>
-                                    <a href="accept.php?id=<?= $pinjeman["id_pinjam"]; ?>" class="badge bg-success rounded-pill text-decoration-none">Dikembalikan</a>
-                                    <a href="reject.php?id=<?= $pinjeman["id_pinjam"]; ?>" class="badge bg-danger rounded-pill text-decoration-none">Hilang</a>
                                 <?php endif; ?>
                             </td>
                             <td><?= date("d-M-Y", strtotime($pinjeman["tanggal_pinjam"])); ?></td>
+                            <td>
+                                <?php if ($pinjeman["status_buku"] !== "Dikembalikan") : ?>
+                                    <a href="returned.php?id=<?= $pinjeman["id_pinjam"]; ?>" class="badge bg-success rounded-pill text-decoration-none">Dikembalikan</a>
+                                    <a href="missing.php?id=<?= $pinjeman["id_pinjam"]; ?>" class="badge bg-danger rounded-pill text-decoration-none mt-2">Hilang</a>
+                                <?php endif; ?>
+                            </td>
                                 </tr>
                   <?php endforeach; ?>
               </tbody>

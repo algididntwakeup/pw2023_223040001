@@ -10,27 +10,19 @@
     </div>
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
-      <li><a class="nav-link" href="../"><i class="fas fa-fire"></i> <span>Beranda</span></a></li>
+      <li><a class="nav-link" href="index.php"><i class="fas fa-fire"></i> <span>Beranda</span></a></li>
       <li class="menu-header">Main Feature</li>
-      <li class="dropdown">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Anggota</span></a>
-        <ul class="dropdown-menu">
-          <li><a class="nav-link" href="../members/index.php">List</a></li>
-          <li><a class="nav-link" href="../members/create.php">Tambah Data</a></li>
-        </ul>
-      </li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book"></i> <span>Buku</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="../books/index.php">List</a></li>
-          <li><a class="nav-link" href="../books/create.php">Tambah Data</a></li>
+          <li><a class="nav-link" href="./booklist.php">List</a></li>
         </ul>
       </li>
       <li class="menu-header">Transaksi</li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Peminjaman</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="../borrowers/index.php">List</a></li>
+          <li><a class="nav-link" href="./cart.php">Keranjang Pinjaman</a></li>
         </ul>
       </li>
     </ul>

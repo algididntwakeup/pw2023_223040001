@@ -1,6 +1,7 @@
 <?php
-require_once 'app.php';
+require 'app.php';
 session_start();
+
 if (isset($_POST['login'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
@@ -11,22 +12,25 @@ if (isset($_POST['login'])) {
   if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
     if (password_verify($password, $row["password"])) {
-      $_SESSION['login'] = true;
-      $_SESSION['nama'] = $row['nama'];
-      $_SESSION['email'] = $row['email'];
+        $_SESSION['login'] = true;
+        $_SESSION['nama'] = $row['nama'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['user'] = $row['nama']; // Add this line
       
-      if ($row['role'] === 'admin') {
-        $_SESSION['role'] = 'admin';
-        header('Location: dashboard/index.php');
-      } else if ($row['role'] === 'member') {
-        $_SESSION['role'] = 'member';
-        header('Location: peminjam/index.php');
-      }
+        if ($row['role'] === 'admin') {
+            $_SESSION['role'] = 'admin';
+            var_dump($_SESSION); // Check session variables
+            header('Location: dashboard/index.php');
+        } else if ($row['role'] === 'member') {
+            $_SESSION['role'] = 'member';
+            var_dump($_SESSION); // Check session variables
+            header('Location: peminjam/index.php');
+        }
     } else {
-      echo "<script>alert('Password yang Anda masukkan salah!');</script>";
+        echo "<script>alert('Password yang Anda masukkan salah!');</script>";
     }
   } else {
-    echo "<script>alert('Email tidak terdaftar!');</script>";
+      echo "<script>alert('Email tidak terdaftar!');</script>";
   }
 }
 

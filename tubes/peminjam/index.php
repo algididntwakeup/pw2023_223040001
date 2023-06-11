@@ -1,75 +1,66 @@
 <?php
-require_once 'layout/_top.php';
-require_once '../helper/connection.php';
+require_once '../app.php';
+session_start();
 
-$users = mysqli_query($connection, "SELECT COUNT(*) FROM users");
-$buku = mysqli_query($connection, "SELECT COUNT(*) FROM buku");
-$pinjam = mysqli_query($connection, "SELECT COUNT(*) FROM pinjam");
+if (!isset($_SESSION["user"])) {
+    header("Location: ../login.php");
+}
 
+$role = $_SESSION["role"];
 
-$total_users = mysqli_fetch_array($users)[0];
-$total_buku = mysqli_fetch_array($buku)[0];
-$total_pinjam = mysqli_fetch_array($pinjam)[0];
+if ($role !== "member") {
+    header("Location: ../index.php");
+}
+
+$user = $_SESSION["nama"];
+$orderan = querySql("SELECT * FROM pinjam WHERE nama = '$user'");
+if ($orderan == null) {
+    echo "<script>alert('Yuk mulai meminjam buku di halaman list buku!'); location='booklist.php';</script>";
+}
 ?>
 
+<?php require_once 'layouts/_top.php'; ?>
+
+<!-- Isi dari halaman index.php -->
 <section class="section">
   <div class="section-header">
-    <h1>Dashboard</h1>
+    <h1>History</h1>
   </div>
-  <div class="column">
+  <div class="container">
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
-          <div class="card-icon bg-primary">
-            <i class="far fa-user"></i>
-          </div>
-          <div class="card-wrap">
-            <div class="card-header">
-              <h4>Jumlah Anggota</h4>
-            </div>
-            <div class="card-body">
-              <?= $total_users ?>
-            </div>
-          </div>
+        <div class="col mt-4">
+            <h5>Hai <?= $user; ?> ini history pinjaman kamu ya</h5>
+            <?php foreach ($orderan as $order) : ?>
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>ID Peminjaman: <?= $order["id_pinjam"]; ?></h5>
+                            <h5> <?= $order["nama"]; ?></h5>
+                            <h5> <?= $order["nama_buku"]; ?></h5>
+                            <span>Status:</span>
+                            <?php if ($order["status_buku"] == "Dipinjam") : ?>
+                                <small class="badge bg-primary text-light"> <?= $order["status_buku"]; ?></small>
+                            <?php elseif ($order["status_buku"] == "Hilang") : ?>
+                                <small class="badge bg-danger"> <?= $order["status_buku"]; ?></small>
+                            <?php elseif ($order["status_buku"] == "Dikembalikan") : ?>
+                                <small class="badge bg-success"> <?= $order["status_buku"]; ?></small>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
-          <div class="card-icon bg-danger">
-            <i class="fas fa-book"></i>
-          </div>
-          <div class="card-wrap">
-            <div class="card-header">
-              <h4>Jumlah Buku</h4>
-            </div>
-            <div class="card-body">
-              <?= $total_buku ?>
-            </div>
-          </div>
+        <div class="col mt-4">
+            <?php if ($order["status_buku"] === "pending") : ?>
+                <h5 class="text-center">Selamat Membaca :D</h5>
+            <?php elseif ($order["status_buku"] === "reject") : ?>
+                <h5 class="text-center">Waduh, Lain kali lebih berhati-hati yaa kalo meminjam buku :/</h5>
+            <?php elseif ($order["status_buku"] === "accept") : ?>
+                <h5 class="text-center">Terimakasih Telah Meminjam :D</h5>
+            <?php endif; ?>
         </div>
-      </div>
     </div>
-    <div class="row">
-
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
-          <div class="card-icon bg-warning">
-            <i class="far fa-file"></i>
-          </div>
-          <div class="card-wrap">
-            <div class="card-header">
-              <h4>Total Transaksi</h4>
-            </div>
-            <div class="card-body">
-              <?= $total_pinjam ?>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </section>
 
-<?php
-require_once 'layout/_bottom.php';
-?>  
+<?php require_once 'layouts/_bottom.php'; ?>
